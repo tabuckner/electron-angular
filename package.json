@@ -1,13 +1,20 @@
 {
   "name": "electron-angular",
   "version": "0.0.0",
+  "main": "main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "electron": "electron .",
+    "electron:build": "yarn electron-packager . AngularElectronTimer",
+    "electron:build:dev": "ng build --prod && yarn electron",
+    "electron:build:win": "yarn electron:build -- --platform=win32",
+    "electron:build:mac": "yarn electron:build -- --platform=darwin",
+    "electron:build:linux": "yarn electron:build -- --platform=linux"
   },
   "private": true,
   "dependencies": {
@@ -32,7 +39,10 @@
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
+    "angular-svg-round-progressbar": "^2.0.0",
     "codelyzer": "~4.3.0",
+    "electron": "^3.0.5",
+    "electron-packager": "^12.2.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.0.0",
